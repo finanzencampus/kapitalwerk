@@ -12,17 +12,44 @@ Animationen – komplett ohne APIs und ohne Live-Daten.
 - **Recharts** für alle Visualisierungen
 - **Lucide Icons**
 
-## Schnellstart
+## Schnellstart (lokal)
 
 ```bash
 npm install
 npm run dev       # http://localhost:3000
-npm run build     # Produktions-Build
+npm run build     # Produktions-Build (statischer Export nach ./out)
 ```
 
 Hinweis: `next/font` lädt Sora und Inter beim ersten Build von Google Fonts
 und bündelt sie anschließend lokal (self-hosted, DSGVO-freundlich). Dafür
 ist beim allerersten `npm run build` einmalig Internetzugang nötig.
+
+## Deployment auf GitHub Pages
+
+### Einmalige Einrichtung
+
+1. **GitHub Pages aktivieren**
+   - Repository → Settings → Pages
+   - Source: **GitHub Actions** auswählen
+
+2. **Branch schützen (empfohlen)**
+   - Repository → Settings → Branches → `main` schützen
+
+3. Push auf `main` – der Workflow baut automatisch und veröffentlicht die Seite unter:
+   `https://<username>.github.io/kapitalwerk/`
+
+### Custom Domain (optional)
+
+Wenn eine eigene Domain (z. B. `kapitalwerk.de`) eingerichtet werden soll:
+
+1. DNS konfigurieren (CNAME auf `<username>.github.io` oder A-Records für GitHub)
+2. Repository → Settings → Pages → Custom Domain eintragen
+3. In `.github/workflows/deploy.yml` die Zeile `NEXT_PUBLIC_BASE_PATH: /kapitalwerk`
+   auf `NEXT_PUBLIC_BASE_PATH: ""` ändern
+4. `public/CNAME` Datei mit der Domain anlegen:
+   ```
+   kapitalwerk.de
+   ```
 
 ## Struktur
 
