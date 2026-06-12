@@ -28,7 +28,8 @@ export default function Psychology() {
                 onClick={() => setFlippedId(isFlipped ? null : bias.id)}
                 aria-expanded={isFlipped}
                 className={cn(
-                  "glass group relative block min-h-[19rem] w-full overflow-hidden rounded-3xl p-6 text-left transition-all duration-300 hover:-translate-y-1",
+                  "glass group relative block w-full rounded-3xl p-6 text-left transition-all duration-300 hover:-translate-y-1",
+                  !isFlipped && "min-h-[19rem] overflow-hidden",
                   isFlipped ? "glass-strong border-violet-400/30" : "hover:bg-white/[0.06]"
                 )}
               >
@@ -48,9 +49,9 @@ export default function Psychology() {
                         {bias.title}
                       </h3>
                       <p className="mt-1 text-sm font-medium text-violet-300">{bias.hook}</p>
-                      <p className="mt-3 text-sm leading-relaxed text-slate-400">{bias.explanation}</p>
-                      <p className="absolute bottom-5 left-6 font-mono text-xs text-slate-600 transition-colors group-hover:text-cyan-400">
-                        → Beispiel & Gegenmittel
+                      <p className="mt-3 text-sm leading-relaxed text-slate-300">{bias.explanation}</p>
+                      <p className="absolute bottom-5 left-6 font-mono text-xs text-slate-500 transition-colors group-hover:text-cyan-400">
+                        → Beispiel &amp; Gegenmittel
                       </p>
                     </motion.div>
                   ) : (
@@ -60,19 +61,26 @@ export default function Psychology() {
                       animate={{ opacity: 1, rotateY: 0 }}
                       exit={{ opacity: 0, rotateY: -12 }}
                       transition={{ duration: 0.25 }}
-                      className="flex h-full flex-col gap-4"
+                      className="flex flex-col gap-4"
                     >
                       <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold text-white">
                         {bias.title} in der Praxis
                       </h3>
-                      <div className="rounded-2xl border border-rose-400/15 bg-rose-400/5 p-4">
-                        <p className="mb-1 font-mono text-[11px] uppercase tracking-widest text-rose-300">Beispiel</p>
-                        <p className="text-sm leading-relaxed text-slate-300">{bias.example}</p>
+                      <div className="rounded-2xl border border-rose-400/40 bg-rose-400/[0.12] p-4">
+                        <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-rose-300">
+                          Beispiel
+                        </p>
+                        <p className="text-sm leading-relaxed text-slate-100">{bias.example}</p>
                       </div>
-                      <div className="rounded-2xl border border-emerald-400/15 bg-emerald-400/5 p-4">
-                        <p className="mb-1 font-mono text-[11px] uppercase tracking-widest text-emerald-300">Gegenmittel</p>
-                        <p className="text-sm leading-relaxed text-slate-300">{bias.antidote}</p>
+                      <div className="rounded-2xl border border-emerald-400/40 bg-emerald-400/[0.12] p-4">
+                        <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-emerald-300">
+                          Gegenmittel
+                        </p>
+                        <p className="text-sm leading-relaxed text-slate-100">{bias.antidote}</p>
                       </div>
+                      <p className="text-center font-mono text-[11px] text-slate-500">
+                        ↑ Erneut tippen zum Schließen
+                      </p>
                     </motion.div>
                   )}
                 </AnimatePresence>

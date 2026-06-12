@@ -690,7 +690,7 @@ export const navItems = [
   { id: "risiko", label: "Risiko-Labor" },
   { id: "etf", label: "ETF-Wissen" },
   { id: "psychologie", label: "Psychologie" },
-  { id: "quiz", label: "Quiz" },
+  { id: "inflation", label: "Kaufkraft" },
   { id: "zukunft", label: "Zukunft" },
 ] as const;
 

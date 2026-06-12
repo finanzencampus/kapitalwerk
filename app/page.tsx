@@ -6,7 +6,7 @@ import HistoryTimeline from "@/components/sections/HistoryTimeline";
 import RiskLab from "@/components/sections/RiskLab";
 import EtfCenter from "@/components/sections/EtfCenter";
 import Psychology from "@/components/sections/Psychology";
-import Quiz from "@/components/sections/Quiz";
+import Inflation from "@/components/sections/Inflation";
 import FutureTrends from "@/components/sections/FutureTrends";
 import Footer from "@/components/sections/Footer";
 
@@ -22,7 +22,7 @@ export default function Home() {
         <RiskLab />
         <EtfCenter />
         <Psychology />
-        <Quiz />
+        <Inflation />
         <FutureTrends />
       </main>
       <Footer />
